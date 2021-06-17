@@ -36,9 +36,9 @@ const Games = styled.div`
 
 const Names = styled.div`
   position: absolute;
-  top: ${({small}: SmallableProps) => !small ? '23px' : '0px'};
+  top: 0px;
   left: ${({small}: SmallableProps) => !small ? '1115px' : '840px'};
-  height: 132px;
+  height: ${({small}: SmallableProps) => !small ? '110px' : '95px'};
 `;
 
 const GameText = styled.div`
@@ -66,7 +66,7 @@ export const OnDeckRun = ({ game, category, runners, commentators, console, esti
         </Column>
       </Games>
       <Names small={small}>
-        <Column>
+        <Column small={small}>
           <MiscText small={small}>
             <WidthFixedLabel widthPx={295}>
               <SimpleNameplate name={runners.join(',')} role="runner" />

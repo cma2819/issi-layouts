@@ -23,7 +23,7 @@ const SpotifyTrackArea = styled.div`
 
 const TwitterArea = styled.div`
   position: absolute;
-  top: 700px;
+  top: 343px;
   left: 1560px;
   width: 360px;
   font-size: 32px;
