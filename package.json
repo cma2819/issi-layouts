@@ -1,0 +1,95 @@
+{
+  "name": "issi-layouts",
+  "version": "0.0.0",
+  "description": "NodeCG bundle for INDIE Speedrun Summit I",
+  "homepage": "",
+  "author": {
+    "name": "Cma",
+    "email": "chicchaima@gmail.com",
+    "url": ""
+  },
+  "files": [
+    "graphics"
+  ],
+  "keywords": [
+    "node.js",
+    "nodecg",
+    "react",
+    "nodecg-bundle"
+  ],
+  "scripts": {
+    "autofix": "run-s autofix:*",
+    "autofix:browser": "npm run lint:browser -- --fix",
+    "autofix:nodecg": "npm run lint:nodecg -- --fix",
+    "build": "webpack",
+    "lint": "run-s lint:*",
+    "lint:browser": "eslint --ext .ts,.tsx src/browser",
+    "lint:nodecg": "eslint --ext .ts src/nodecg",
+    "dev": "webpack --watch --mode=development",
+    "schema-types": "nodecg schema-types -o src/nodecg/generated schemas",
+    "schema-types:lib": "nodecg schema-types -o src/nodecg/generated/lib schemas/lib"
+  },
+  "nodecg": {
+    "compatibleRange": "^1.1.1",
+    "bundleDependencies": {
+      "nodecg-speedcontrol": "^2.0.0",
+      "nodecg-twitter-widget": "^0.9.0",
+      "nodecg-spotify-widget": "^0.9.0",
+      "speedcontrol-additions": "^0.9.0"
+    },
+    "graphics": [
+      {
+        "file": "setup.html",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "file": "sd1.html",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "file": "hd1.html",
+        "width": 1920,
+        "height": 1080
+      }
+    ]
+  },
+  "repository": "https://github.com/cma2819/issi-layouts.git",
+  "license": "MIT",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.3",
+    "axios": "^0.21.1",
+    "clone": "^2.1.2",
+    "globby": "^11.0.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "styled-components": "^5.3.0"
+  },
+  "devDependencies": {
+    "@types/clone": "^2.1.0",
+    "@types/globby": "^9.1.0",
+    "@types/html-webpack-plugin": "^3.2.5",
+    "@types/node": "^15.6.2",
+    "@types/react": "^17.0.9",
+    "@types/react-dom": "^17.0.6",
+    "@types/styled-components": "^5.1.10",
+    "@types/webpack-merge": "^5.0.0",
+    "@types/webpack-node-externals": "^2.5.1",
+    "@typescript-eslint/eslint-plugin": "^4.26.0",
+    "@typescript-eslint/parser": "^4.26.0",
+    "eslint": "^7.27.0",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "html-webpack-plugin": "^5.3.1",
+    "nodecg-cli": "^7.0.0",
+    "ts-loader": "^9.2.3",
+    "ts-node": "^10.0.0",
+    "ts-nodecg": "^0.3.1",
+    "typescript": "^4.3.2",
+    "webpack": "^5.38.1",
+    "webpack-cli": "^4.7.0",
+    "webpack-merge": "^5.8.0",
+    "webpack-node-externals": "^3.0.0"
+  }
+}

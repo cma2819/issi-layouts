@@ -1,0 +1,7 @@
+@import '../fonts/styles.css';
+
+body {
+    margin: 0;
+    overflow: hidden;
+    font-family: 'MaruMonica';
+}
