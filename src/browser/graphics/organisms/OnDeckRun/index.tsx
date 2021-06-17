@@ -13,23 +13,20 @@ type Props = {
   small?: boolean;
 };
 
+type SmallableProps = {
+  small?: boolean;
+}
+
 const Container = styled.div`
   position: relative;
 `;
 
-const MidColumn = styled.div`
-  height: 133px;
+const Column = styled.div`
+  height: ${({small}: SmallableProps) => !small ? '133px' : '95px'};
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-`;
-
-const SmallColumn = styled.div`
-  height: 95px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-`;
+`
 
 const Games = styled.div`
   position: absolute;
@@ -39,58 +36,43 @@ const Games = styled.div`
 
 const Names = styled.div`
   position: absolute;
-  top: 23px;
+  top: ${({small}: SmallableProps) => !small ? '23px' : '0px'};
+  left: ${({small}: SmallableProps) => !small ? '1115px' : '840px'};
   height: 132px;
 `;
 
-const MidGameText = styled.div`
-  font-size: 68px;
+const GameText = styled.div`
+  font-size: ${({small}: SmallableProps) => !small ? '68px' : '45px'};
 `;
 
-const MidMiscText = styled.div`
-  font-size: 45px;
+const MiscText = styled.div`
+  font-size: ${({small}: SmallableProps) => !small ? '45px' : '40px'};
 `;
-
-const SmallGameText = styled.div`
-  font-size: 45px;
-`;
-
-const SmallMiscText = styled.div`
-  font-size: 40px;
-`;
-
 
 export const OnDeckRun = ({ game, category, runners, commentators, console, estimate, small }: Props) => {
-
-  const Column = !small ? MidColumn : SmallColumn;
-  const GameText = !small ? MidGameText : SmallGameText;
-  const MiscText = !small ? MidMiscText : SmallMiscText;
 
   return (
     <Container>
       <Games>
-        <Column>
-          <GameText>
+        <Column small={small}>
+          <GameText small={small}>
             <WidthFixedLabel widthPx={1100}>
               {game}
             </WidthFixedLabel>
           </GameText>
           <WidthFixedLabel widthPx={1100}>
-            <MiscText>{category} / {console} / {estimate}</MiscText>
+            <MiscText small={small}>{category} / {console} / {estimate}</MiscText>
           </WidthFixedLabel>
         </Column>
       </Games>
-      <Names style={{
-        top: !small ? '23px' : '0px',
-        left: !small ? '1115px' : '840px',
-      }}>
-        <SmallColumn>
-          <MiscText>
+      <Names small={small}>
+        <Column>
+          <MiscText small={small}>
             <WidthFixedLabel widthPx={295}>
               <SimpleNameplate name={runners.join(',')} role="runner" />
             </WidthFixedLabel>
           </MiscText>
-          <MiscText>
+          <MiscText small={small}>
             <WidthFixedLabel widthPx={295}>
               {
                 commentators.length > 0 && (
@@ -99,7 +81,7 @@ export const OnDeckRun = ({ game, category, runners, commentators, console, esti
               }
             </WidthFixedLabel>
           </MiscText>
-        </SmallColumn>
+        </Column>
       </Names>
     </Container>
   );
