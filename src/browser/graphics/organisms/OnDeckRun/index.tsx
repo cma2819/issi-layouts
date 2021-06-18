@@ -56,24 +56,26 @@ export const OnDeckRun = ({ game, category, runners, commentators, console, esti
       <Games>
         <Column small={small}>
           <GameText small={small}>
-            <WidthFixedLabel widthPx={1100}>
+            <WidthFixedLabel align="left" widthPx={1100}>
               {game}
             </WidthFixedLabel>
           </GameText>
-          <WidthFixedLabel widthPx={1100}>
+          <WidthFixedLabel align="left" widthPx={1100}>
             <MiscText small={small}>{category} / {console} / {estimate}</MiscText>
           </WidthFixedLabel>
         </Column>
       </Games>
       <Names small={small}>
         <Column small={small}>
-          <MiscText small={small}>
-            <WidthFixedLabel widthPx={295}>
+          <MiscText small={small} style={{
+            marginTop: !small ? '23px' : 0,
+          }}>
+            <WidthFixedLabel align="left" widthPx={295}>
               <SimpleNameplate name={runners.join(',')} role="runner" />
             </WidthFixedLabel>
           </MiscText>
           <MiscText small={small}>
-            <WidthFixedLabel widthPx={295}>
+            <WidthFixedLabel align="left" widthPx={295}>
               {
                 commentators.length > 0 && (
                   <SimpleNameplate name={commentators.join(',')} role="commentator" />

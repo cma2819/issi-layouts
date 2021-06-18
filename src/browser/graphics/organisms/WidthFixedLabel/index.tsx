@@ -2,10 +2,11 @@ import React, { ReactNode, useEffect, useRef, useState } from 'react';
 
 type Prop = {
   widthPx: number;
+  align: 'left'|'center'|'right';
   children: ReactNode;
 };
 
-export const WidthFixedLabel = ({ widthPx, children }: Prop) => {
+export const WidthFixedLabel = ({ widthPx, align, children }: Prop) => {
 
   const [ widthScale, setWidthScale ] = useState<number>(1);
 
@@ -21,17 +22,17 @@ export const WidthFixedLabel = ({ widthPx, children }: Prop) => {
         ));
       }, 100);
     }
-  });
+  }, [ widthPx, children ]);
   
   return (
-    <span ref={ref} style={
+    <div ref={ref} style={
       {
         transform: `scaleX(${widthScale})`,
-        transformOrigin: 'top left',
+        transformOrigin: `top ${align}`,
         whiteSpace: 'nowrap',
       }
     }>
       { children }
-    </span>
+    </div>
   );
 }

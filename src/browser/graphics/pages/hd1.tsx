@@ -1,20 +1,10 @@
-import '../common.css';
-
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { ClippedCanvas } from '../components/ClippedCanvas';
-import bgImage from '../statics/game.png';
+import { SoloGameView } from './commons/SoloGameView';
 
 const App = () => {
   return (
-    <ClippedCanvas
-      width={1920}
-      height={1080}
-      clipPaths={[
-        { x: 40, y: 40, width: 1500, height: 844 }
-      ]}
-      backgroundImage={bgImage}
-    />
+    <SoloGameView clips={{ x: 40, y: 40, width: 1500, height: 844 }} />
   );
 }
 

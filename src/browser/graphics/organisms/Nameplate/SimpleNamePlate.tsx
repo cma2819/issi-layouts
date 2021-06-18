@@ -11,7 +11,6 @@ const Container = styled.div`
 `;
 
 const Icon = styled.i`
-  width: 45px;
   margin-right: 8px;
 `;
 
