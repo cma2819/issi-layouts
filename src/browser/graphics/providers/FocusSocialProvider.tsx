@@ -35,7 +35,7 @@ export const FocusSocialProvider = ({ children }: Props) => {
 
     const runnerSocials = currentRun.teams.flatMap(team => team.players).map((player) => {
       const additions = scAddition.speedcontrolUserAdditionArray.find(
-        addition => addition.id === player.externalID
+        addition => addition.id === player.customData.oengusId
       );
 
       return {
