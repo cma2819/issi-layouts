@@ -40,7 +40,7 @@ export const RunParticipants = ({ race = false }: Props) => {
 
   const socialsFromRun = (run: RunData) => {
     return playersFromRun(run).map((player) => {
-      const social = scAdditions.speedcontrolUserAdditionArray.find(addition => addition.id === player.externalID);
+      const social = scAdditions.speedcontrolUserAdditionArray.find(addition => addition.id === player.customData.oengusId);
       return {
         twitch: player.social.twitch,
         twitter: social?.social.twitter,

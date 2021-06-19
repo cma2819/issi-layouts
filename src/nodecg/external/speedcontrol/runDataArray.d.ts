@@ -26,10 +26,13 @@ export type RunDataArray = {
 			id: string;
 			teamID: string;
 			country?: string;
+			pronouns?: string;
 			social: {
 				twitch?: string;
 			};
-			externalID?: string;
+			customData: {
+				[k: string]: string;
+			};
 		}[];
 	}[];
 	customData: {
